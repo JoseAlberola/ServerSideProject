@@ -1,0 +1,26 @@
+<form action="/staff/addnew" method="post">
+    <div style="width: 50%; margin:auto">
+        <div class="form-group">
+            <input type=text id='firstname' name='firstname' placeholder="First name" class='form-control'>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type=text id='surname' name='surname' placeholder="Surname" class='form-control'>
+        </div>
+        <br>
+        <div class="form-group">            
+            <fieldset>
+                <div style="text-align:left;">
+                    <label style="margin-right: 60px" for='gender'>Gender</label>                    
+
+                    <input type="radio" name="gender" value="male" id="male" />
+                    <label for="male">Male</label>
+                    <input style="margin-left:20px" type="radio" name="gender" value="female" id="female" />
+                    <label for="female">Female</label>
+                </div>
+            </fieldset>
+        </div>
+        <br>
+        <button type=submit class="btn btn-primary">Add Person</button>
+    </div>
+</form>
