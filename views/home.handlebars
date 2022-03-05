@@ -3,12 +3,88 @@
         {{message}}    
     </h3>
 {{/if}}
-
-<h2> Welcome to Covid Travel </h2>
-
+<br/>
+<h2> Welcome to ABaC restaurant </h2>
+<br/>
+<p>
+    We are offering the best mediterranean food since 2005, time when our chef Jordi Cruz decided to start this adventure. In our 
+    space you would live a unique experience: tastes, textures and combination that you would never think before.  
+</p>
 <br>
-<br>
-<br>
+<div class="container-columns">
+    <div class="column">
+        <h3>Tradition</h3>
+        <p class="p-column">
+            Our DNA is creative, we try to blaze new trails, knowing that we did not start the journey. From the work done by many, 
+            we extract criteria, taste and coherence. From everything in our memory, we extract what we need to be able to reason 
+            logically. We move forward from the respect that comes from everything that has already been done and from that exact point, 
+            we can understand what is really new. 
+        </p>
+    </div>
+    <div class="column">
+        <h3>Modernity</h3>
+        <p class="p-column">
+            Our cuisine does not want to be pretentious, but it does want to be unique. We feel the need to reinvent ourselves, to 
+            surprise ourselves. The many hours behind the stove, spoon and casserole lead us to do something different, to create our 
+            own discourse and to do it with known words and many new ones. We don't pretend to be unique or sparkling like shooting 
+            stars, but it is clear to us that what we make cannot be eaten anywhere else in the world. 
+        </p>
+    </div>
+    <div class="column">
+        <h3>Product</h3>
+        <p class="p-column">
+            You can only make great cuisine if you have the best products. The first surprise we have prepared for our guests is the 
+            quality, freshness and natural flavour of our ingredients. We search the world over for incredible flavours, knowing that 
+            the best is probably the closest. The backbone of our cuisine is our products, our great recipes are those that enhance and 
+            give life to our great raw materials.
+        </p>
+    </div>
+</div>
+<div class="container-gallery">
+    <h3>Gallery</h3>
+    <div class="column-images">
+        <img src="/images/image1.jpg" alt="Air View" height="50%" class="images">
+    </div>
+    <div class="column-images">
+        <img src="/images/image2.jpg" alt="Terrace" height="50%" class="images">
+    </div>
+    <div class="column-images">
+        <img src="/images/image3.jpg" alt="Room 1" height="50%" class="images">
+    </div>
+    <div class="column-images">
+        <img src="/images/image4.jpg" alt="Room 2" height="50%" class="images">
+    </div>
+    <div class="column-images">
+        <img src="/images/image5.jpg" alt="Room 3" height="50%" class="images">
+    </div>
+    <div class="column-images">
+        <img src="/images/image6.jpg" alt="Room 4" height="50%" class="images">
+    </div>
+</div>
+<footer>
+    {{> legal}}
+    {{> links data=linkData}}
+</footer>
 
-{{> legal}}
-{{> links data=linkData}}
+<style>
+    .images{
+        padding: 20px;
+    }
+    .column-images{
+        width: 50%;
+        float:left
+    }
+    .container-columns{
+        width: 100%; 
+        overflow: auto;
+    }
+    .column{
+        width: 33.3%;
+        float:left;
+        padding:20px;
+        margin:auto;
+    }
+    .p-column{
+        text-align: justify;
+    }
+</style>

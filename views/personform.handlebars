@@ -8,6 +8,18 @@
             <input type=text id='surname' name='surname' placeholder="Surname" class='form-control'>
         </div>
         <br>
+        <div class="form-group">
+            <input type="number" min="100000000" max="999999999" id='telephone' name='telephone' placeholder="654645645" class='form-control'>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="email" id='telephone' name='telephone' placeholder="example@gmail.com" class='form-control'>
+        </div>        
+        <br>
+        <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write something you want us to know"></textarea>
+        </div>
+        <br>
         <div class="form-group">            
             <fieldset>
                 <div style="text-align:left;">
@@ -21,6 +33,109 @@
             </fieldset>
         </div>
         <br>
+        <div class="form-group" style="text-align: left;">
+            <label for="formFile" class="form-label">Send us your CV</label>
+            <input class="form-control" type="file" id="formFile" required>
+            <br>
+            <label for="exampleDataList" class="form-label">Datalist example</label>
+            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+            <datalist id="datalistOptions">
+                <option value="San Francisco">
+                <option value="New York">
+                <option value="Seattle">
+                <option value="Los Angeles">
+                <option value="Chicago">
+            </datalist>
+        </div>
+        <br>
         <button type=submit class="btn btn-primary">Add Person</button>
     </div>
 </form>
+
+    <div style="width: 50%; margin:auto">
+<form class="row g-3 needs-validation" novalidate>
+  <div class="col-md-12">
+    <label for="validationCustom01" class="form-label">First name</label>
+    <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-12">
+    <label for="validationCustom02" class="form-label">Last name</label>
+    <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <div class="col-md-12">
+    <label for="validationCustomMail" class="form-label">Mail</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend">@</span>
+      <input type="email" class="form-control" id="validationCustomMail" aria-describedby="inputGroupPrepend" required>
+      <div class="invalid-feedback">
+        Please write your mail. (example@example)
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <label class="form-label">Observations</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write something you want us to know"></textarea>
+  </div>
+  <div class="col-md-12">
+    <label for="validationCustom04" class="form-label">Position</label>
+    <select class="form-select" id="validationCustom04" required>
+      <option selected disabled value="">Choose...</option>
+      <option>Chef</option>
+      <option>Waiter</option>
+      <option>Kitchen assistant</option>
+      <option>Front office</option>
+    </select>
+    <div class="invalid-feedback">
+      Please select a valid position.
+    </div>
+  </div>
+  <div class="col-md-12">
+    <label class="form-label">Send us your CV</label>
+    <input type="file" class="form-control" aria-label="file example" required>
+    <div class="invalid-feedback">Example invalid form file feedback</div>
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+      <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
+      </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+</form>
+  </div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+        }, false)
+        })
+    })()
+</script>

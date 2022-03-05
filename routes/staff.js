@@ -30,6 +30,10 @@ router.get('/jose',  (req, res) => {
     res.send('I\'m Jose.');
 });
 
+router.get('/careers',  (req, res) => {
+    res.render('personform');
+});
+
 router.get('/addnew', (req, res) => {
     res.render('personform')
     // var fname = req.query.firstname;

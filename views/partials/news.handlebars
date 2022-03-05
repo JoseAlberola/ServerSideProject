@@ -1,12 +1,30 @@
-<aside>
-    <h2>Our Latest News Stories</h2>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Our Latest News Stories
+</button>
 
-    <div class="newsWidget">
-        {{#each partials.newsContext}}
-        <div>
-            <h3>{{heading}}</h3>
-            {{body}}            
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Latests News</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="newsWidget">
+            {{#each partials.newsContext}}
+            <div style="padding: 10px; text-align: justify;">
+                <h5>{{heading}}</h5>
+                {{body}}   
+                <br/>         
+            </div>
+            {{/each}}
         </div>
-        {{/each}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>       
+      </div>
     </div>
-</aside>
+  </div>
+</div>
