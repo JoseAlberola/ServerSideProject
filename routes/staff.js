@@ -21,6 +21,8 @@ var data = {
         }
     }
 
+var aplication= {}
+
 router.get('/', (req, res) => {
     res.render('listing', { personlist: data })
 });
@@ -34,21 +36,15 @@ router.get('/careers',  (req, res) => {
     res.render('personform');
 });
 
-router.get('/addnew', (req, res) => {
-    res.render('personform')
-    // var fname = req.query.firstname;
-    // var sname = req.query.surname;
-    // console.log('Date entered ' + fname + ' ' + sname);
-})
-
-router.post('/addnew', (req, res) => {
+router.post('/apply', (req, res) => {
     console.log("Data sent via post");
     console.table(req.body);
-    res.redirect(303, 'personadded',)
+    aplication = req.body;
+    res.redirect(303, 'personadded')
 })
 
-router.get('/personadded', (req, res) => {
-    res.render('personadded')
+router.get('/personadded', (req, res) => { 
+    res.render('personadded', {aplication: aplication})
 })
 
 router.get('/:name', (req, res) => {
