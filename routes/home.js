@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const linksForHome = 
-[ {url: 'itsligo.ie' , text : 'IT Sligo Home Page'},
-{ url: 'irishtimes.ie', text : 'The Irish Times'}];
+[ {url: 'https://elcaso.elnacional.cat/es/noticias/criticas-duras-abac-restaurante-estrella-michelin-jordi-cruz-insoportable_60199_102.html' , text : 'El Caso'},
+{ url: 'https://www.lasprovincias.es/gastronomia/restaurantes/jordi-cruz-abac-precio-20211017184151-nt.html', text : 'Las provincias'}];
 
 router.get('/', function (req, res) {
     var message = "";

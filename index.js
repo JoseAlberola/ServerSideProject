@@ -3,7 +3,7 @@ const path = require('path')
 const app = express()
 const port = 3000
 const home = require('./routes/home')
-const staff = require('./routes/staff')
+const abac = require('./routes/abac')
 const cookieParser = require('cookie-parser');
 const {newsMiddleware} = require('./lib/middleware')
 
@@ -15,7 +15,7 @@ app.use(newsMiddleware)
 // need this before you can use req.body
 app.use(express.urlencoded({ extended: true })) 
 app.use('/', home)
-app.use('/staff', staff)
+app.use('/abac', abac)
 
 // set up handlebars view engine
 var handlebars = require('express-handlebars')

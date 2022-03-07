@@ -61,12 +61,14 @@
         <img src="/images/image6.jpg" alt="Room 4" height="50%" class="images">
     </div>
 </div>
-<footer>
-    {{> legal}}
-    {{> links data=linkData}}
-</footer>
+
+<br>
+{{> links data=linkData}}
 
 <style>
+    .container-gallery{         
+        overflow: auto;
+    }
     .images{
         padding: 20px;
     }

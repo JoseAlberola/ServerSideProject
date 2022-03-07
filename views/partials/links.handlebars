@@ -1,6 +1,14 @@
-<aside>
+<div class="container">
+    <h6>Some posts about us</h6>
     {{#each data}}
-    <div> <a href='{{this.url}}' > {{{this.text}}}</a> </div>
+        <div>
+            <a href='{{this.url}}' > {{{this.text}}}</a>
+        </div>
     {{/each}}
+</div>
 
-</aside>
+<style>
+    .container{
+
+    }
+</style>

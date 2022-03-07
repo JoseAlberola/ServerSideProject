@@ -1,30 +1,37 @@
 const express = require('express');
 const router = express.Router();
 
-var data = { 
-    "foil": {
-        "name": "foil",
-        "dob": "01/01/1998",
-        "imageurl": "/images/foilimage1.png",
-        "hobbies": ["Jokes", "Gags", "Stand up"]
+var menus = { 
+    "À la carte": { 
+        "name": "À la carte",            
+        "imageurl": "/images/menu.jpg",        
         },
-    "foil1": {
-        "name": "foil1",
-        "dob": "01/01/2000",
-        "imageurl": "/images/foilimage2.png",
-        "hobbies": ["Videogames", "Basketball", "Football"]
+    "Midweek": {
+        "name": "Midweek",
+        "imageurl": "/images/menu.jpg",
+        "price": "12"
         },
-    "foil2": { 
-        "name": "foil2",            
-        "imageurl": "/images/foilimage3.png",
-        "hobbies": ["Hiking", "Laughing"]
+    "Weekend": {
+        "name": "Weekend",
+        "imageurl": "/images/menu.jpg",
+        "price": "18"
+        },
+    "Children": { 
+        "name": "Children",            
+        "imageurl": "/images/menu.jpg",
+        "price": "10"
+        },
+    "Tasting": { 
+        "name": "Tasting",            
+        "imageurl": "/images/menu.jpg",
+        "price": "25"
         }
     }
 
 var aplication= {}
 
 router.get('/', (req, res) => {
-    res.render('listing', { personlist: data })
+    res.render('listingmenu', { menulist: menus })
 });
 
 router.get('/jose',  (req, res) => {
@@ -49,11 +56,11 @@ router.get('/personadded', (req, res) => {
 
 router.get('/:name', (req, res) => {
     var name = req.params.name;
-    if(data[name] == undefined){
+    if(menus[name] == undefined){
         res.status(404);
         res.render('404');
     }else{
-        res.render('person', { person: data[name] })
+        res.render('menu', { menu: menus[name] })
     }
 })
 
