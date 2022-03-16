@@ -1,4 +1,5 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const path = require('path')
 const app = express()
 const port = 3000
@@ -22,6 +23,25 @@ var handlebars = require('express-handlebars')
 .create({ defaultLayout:'main' });
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
+
+// Connection with Mongo
+var connectionString = "mongodb://localhost:27017/SSPROJECT";
+mongoose.connect(connectionString, {
+    "useNewUrlParser": true,
+    "useUnifiedTopology": true
+  }).
+  catch ( error => {
+    console.log('Database connection refused' + error);
+    process.exit(2);
+  })
+  
+  const db = mongoose.connection;
+  
+  db.on('error', console.error.bind(console, 'connection error:'));
+  
+  db.once('open', () => {
+    console.log("DB connected")
+});  
 
 // // 404 catch-all handler (middleware)
 app.use(function (req, res, next) {

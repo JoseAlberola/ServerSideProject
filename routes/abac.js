@@ -1,36 +1,11 @@
 const express = require('express');
+const { readMenu  } = require('../models/menu');
 const router = express.Router();
-
-var menus = { 
-    "À la carte": { 
-        "name": "À la carte",            
-        "imageurl": "/images/menu.jpg",        
-        },
-    "Midweek": {
-        "name": "Midweek",
-        "imageurl": "/images/menu.jpg",
-        "price": "12"
-        },
-    "Weekend": {
-        "name": "Weekend",
-        "imageurl": "/images/menu.jpg",
-        "price": "18"
-        },
-    "Children": { 
-        "name": "Children",            
-        "imageurl": "/images/menu.jpg",
-        "price": "10"
-        },
-    "Tasting": { 
-        "name": "Tasting",            
-        "imageurl": "/images/menu.jpg",
-        "price": "25"
-        }
-    }
 
 var aplication= {}
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+    const menus = await readMenu();
     res.render('listingmenu', { menulist: menus })
 });
 
@@ -54,13 +29,15 @@ router.get('/personadded', (req, res) => {
     res.render('personadded', {aplication: aplication})
 })
 
-router.get('/:name', (req, res) => {
+router.get('/:name', async (req, res) => {
     var name = req.params.name;
-    if(menus[name] == undefined){
+    const menu = await readMenu({'name': name})
+    if(!menu){
+        console.log('404 because person doesn\'t exist');
         res.status(404);
         res.render('404');
     }else{
-        res.render('menu', { menu: menus[name] })
+        res.render('menu', { menu: menu })
     }
 })
 
