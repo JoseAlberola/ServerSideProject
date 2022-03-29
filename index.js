@@ -5,18 +5,23 @@ const app = express()
 const port = 3000
 const home = require('./routes/home')
 const abac = require('./routes/abac')
+const menu = require('./routes/menu')
+const { credentials  } = require('./config');
+const { connectionString  } = require('./config');
 const cookieParser = require('cookie-parser');
 const {newsMiddleware} = require('./lib/middleware')
 
+let cookieSecret =  credentials.cookieSecret 
 app.use(express.static('public'));
 app.use(express.static(path.join(__dirname + '/node_modules/bootstrap/dist')));
-app.use(cookieParser("Una is so great"));
+app.use(cookieParser(cookieSecret));
 app.use(newsMiddleware)
 // middleware for parsing the body of Posts
 // need this before you can use req.body
 app.use(express.urlencoded({ extended: true })) 
 app.use('/', home)
 app.use('/abac', abac)
+app.use('/menus', menu)
 
 // set up handlebars view engine
 var handlebars = require('express-handlebars')
@@ -25,7 +30,6 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
 // Connection with Mongo
-var connectionString = "mongodb://localhost:27017/SSPROJECT";
 mongoose.connect(connectionString, {
     "useNewUrlParser": true,
     "useUnifiedTopology": true
